@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('standard logining test', async ({ page }) => {
+test('mocking data test', async ({ page }) => {
 
   const username = page.locator('[data-test="username"]')
   const password = page.locator('[data-test="password"]')
@@ -20,6 +20,7 @@ test('standard logining test', async ({ page }) => {
 
     if (mocking_urls.includes(request.url())) {
       route.fulfill({
+        contentType: 'image/jpeg',
         path: 'tests/images/crab-icon.png',
       });
     } else {
@@ -35,10 +36,10 @@ test('standard logining test', async ({ page }) => {
   await password.click();
   await password.fill('secret_sauce');
   await login.click();
+  await page.pause();
   await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html')
 
   await burger.click();
   await logout.click();
-  await page.pause();
   await expect(page).toHaveURL('https://www.saucedemo.com')
 })
