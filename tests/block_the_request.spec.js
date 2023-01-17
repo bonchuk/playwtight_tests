@@ -34,9 +34,9 @@ test('blocking google requests on the website', async ({ page }) => {
 
   // виключаємо конкретні запити
   await page.route("**/*", (route, request) => {
-    const urls_to_block = ['https://www.googletagmanager.com/gtm.js?id=GTM-NDK3GF',
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyDR2J9XFNnRowvm6NkU523oXyVaktVqgc8&libraries=places%2Cgeometry&language=uk&callback=Drupal.Jysk.googleMapsReadyCallback']
-    if (urls_to_block.includes(request.url())) {
+    const urlsToBlock = new Set(['https://www.googletagmanager.com/gtm.js?id=GTM-NDK3GF',
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyDR2J9XFNnRowvm6NkU523oXyVaktVqgc8&libraries=places%2Cgeometry&language=uk&callback=Drupal.Jysk.googleMapsReadyCallback'])
+    if (urlsToBlock.has(request.url())) {
       route.abort();
     } else {
       route.continue();
