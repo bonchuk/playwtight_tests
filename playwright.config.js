@@ -43,7 +43,7 @@ const config = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://localhost:3000/app/',
+    baseURL: 'http://localhost:3000/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -110,8 +110,8 @@ const config = {
     // command: 'npm run dev --port 8080',
     // port: 8080,
     // reuseExistingServer: true
-    command: 'npx playwright test',
-    url: 'http://localhost:3000/app/',
+    command: 'npm run start',
+    url: 'http://localhost:3000/',
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
   },
