@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { globalTimeout } from '../playwright.config';
 
   test.use({ viewport: { width: 600, height: 900 } });
   test('portrait test', async ({ page, context }) => {
