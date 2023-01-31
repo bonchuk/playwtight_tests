@@ -19,11 +19,13 @@ import { test, expect } from '@playwright/test';
     await expect(password).toHaveAttribute('value', 'secret_sauce');
 
     await page.locator('[id="login-button"]').click();
+    await page.waitForLoadState('networkidle');
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
-    await page.screenshot({ path: 'tests/screenshot.spec.js-snapshots/screenshot.png', fullPage: true });
-    await page.locator('[id="item_3_img_link"]', { waitUntil: 'networkidle' }).click();
+    await page.screenshot({ path: 'tests/screenshot.spec.js-snapshots/screenshot.png', fullPage: true});
+    await page.locator('[id="item_3_img_link"]').click();
 
     await page.locator('[id="react-burger-menu-btn"]').click();
+    await page.waitForLoadState('networkidle');
     await expect(page).toHaveScreenshot();
 
     await page.locator('[id="logout_sidebar_link"]').click();
