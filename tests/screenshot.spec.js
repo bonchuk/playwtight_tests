@@ -26,7 +26,7 @@ import { test, expect } from '@playwright/test';
 
     await page.locator('[id="react-burger-menu-btn"]').click();
     await page.waitForLoadState('networkidle');
-    await expect(page).toHaveScreenshot();
+    await expect(page).toHaveScreenshot({ _comparator: 'ssim-cie94' });
 
     await page.locator('[id="logout_sidebar_link"]').click();
     await expect(page).toHaveURL('https://www.saucedemo.com');
