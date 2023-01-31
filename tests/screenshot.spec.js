@@ -26,7 +26,6 @@ import { test, expect } from '@playwright/test';
 
     await page.locator('[id="react-burger-menu-btn"]').click();
     await page.waitForLoadState('networkidle');
-    await page.evaluate(() => document.fonts.ready);
     await expect(page).toHaveScreenshot();
 
     await page.locator('[id="logout_sidebar_link"]').click();
