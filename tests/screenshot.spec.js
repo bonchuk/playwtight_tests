@@ -21,7 +21,7 @@ import { test, expect } from '@playwright/test';
     await page.locator('[id="login-button"]').click();
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
     await page.screenshot({ path: 'tests/screenshot.spec.js-snapshots/screenshot.png', fullPage: true });
-    await page.locator('[id="item_3_img_link"]').click();
+    await page.locator('[id="item_3_img_link"]', { waitUntil: 'networkidle' }).click();
 
     await page.locator('[id="react-burger-menu-btn"]').click();
     await expect(page).toHaveScreenshot();
