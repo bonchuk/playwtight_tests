@@ -20,7 +20,7 @@ test ('screenshot masks test', async ({page}) => {
   await login.click();
   await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html')
 
-  await page.locator('.footer_robot').waitFor()
+  await page.waitForLoadState('networkidle');
   
   const shot = await page.screenshot({
     fullPage: true,
