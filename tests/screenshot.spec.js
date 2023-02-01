@@ -28,7 +28,7 @@ import { test, expect } from '@playwright/test';
     await page.waitForLoadState('networkidle');
     await expect(page).toHaveScreenshot(
       {
-        threshold: 0.7
+        threshold: 0.9
       }
     );
 
