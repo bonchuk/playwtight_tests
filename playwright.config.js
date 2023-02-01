@@ -70,16 +70,7 @@ const config = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        channel: 'chrome',
-        launchOptions: {
-          args: [
-            '--font-render-hinting=none',
-            '--disable-skia-runtime-opts',
-            '--disable-font-subpixel-positioning',
-            '--disable-lcd-text',
-          ]
-        }
-      },
+      }
     },
 
     // {
