@@ -1,4 +1,4 @@
-import { chromium, request, test } from '@playwright/test'
+import { test } from '@playwright/test'
 
 test('blocking google requests on the website', async ({ page }) => {
 
