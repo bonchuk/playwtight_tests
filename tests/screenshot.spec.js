@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-  test.use({ viewport: { width: 600, height: 900 } });
+  // test.use({ viewport: { width: 600, height: 900 } });
   test('portrait test', async ({ page, context }) => {
 
     await context.tracing.start({snapshots:true, screenshots:true})
