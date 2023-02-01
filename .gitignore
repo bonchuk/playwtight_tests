@@ -1,5 +1,4 @@
 node_modules/
-/playwright/.cache/
 /tests/.env
 /playwright-report/
 tests/.DS_Store
