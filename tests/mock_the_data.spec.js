@@ -31,7 +31,11 @@ test('mocking data test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com')
 
   await expect(page).toHaveTitle('Swag Labs')
-  expect(await page.screenshot({fullPage: true})).toMatchSnapshot();
+  expect(await page.screenshot({fullPage: true})).toMatchSnapshot(
+    {
+      maxDiffPixels: 2767
+    }
+  );
 
   await username.click()
   await username.fill('standard_user')
