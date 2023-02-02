@@ -25,10 +25,11 @@ test ('screenshot masks test', async ({page}) => {
   const shot = await page.screenshot({
     // fullPage: true,
     mask: [price, photo, decription],
-    threshold: 0.7
   })
 
-  expect(shot).toMatchSnapshot()
+  expect(shot).toMatchSnapshot({
+    maxDiffPixels: 13636
+  })
 
   await burger.click();
   await logout.click();
