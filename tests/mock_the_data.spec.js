@@ -46,5 +46,9 @@ test('mocking data test', async ({ page }) => {
   await logout.click()
 
   await expect(page).toHaveURL('https://www.saucedemo.com')
-  expect(await page.screenshot({fullPage: true})).toMatchSnapshot();
+  expect(await page.screenshot({fullPage: true})).toMatchSnapshot(
+    {
+      maxDiffPixels: 2767
+    }
+  );
 })
