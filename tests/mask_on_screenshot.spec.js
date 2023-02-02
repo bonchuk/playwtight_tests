@@ -23,7 +23,7 @@ test ('screenshot masks test', async ({page}) => {
   await page.waitForLoadState('networkidle');
   
   const shot = await page.screenshot({
-    fullPage: true,
+    // fullPage: true,
     mask: [price, photo, decription]
   })
 
