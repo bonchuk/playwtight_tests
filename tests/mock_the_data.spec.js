@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test'
 
-test('mocking data test', async ({ page }) => {
+test.use({ headless: true });
+
+test('mocking data test', async ({ browser }) => {
+
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
   const username = page.locator('[data-test="username"]')
   const password = page.locator('[data-test="password"]')
@@ -31,7 +36,7 @@ test('mocking data test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com')
 
   await expect(page).toHaveTitle('Swag Labs')
-  expect(await page.screenshot({fullPage: true})).toMatchSnapshot(
+  expect(await page.screenshot({ fullPage: true })).toMatchSnapshot(
     {
       maxDiffPixels: 2767
     }
@@ -50,7 +55,7 @@ test('mocking data test', async ({ page }) => {
   await logout.click()
 
   await expect(page).toHaveURL('https://www.saucedemo.com')
-  expect(await page.screenshot({fullPage: true})).toMatchSnapshot(
+  expect(await page.screenshot({ fullPage: true })).toMatchSnapshot(
     {
       maxDiffPixels: 2767
     }
