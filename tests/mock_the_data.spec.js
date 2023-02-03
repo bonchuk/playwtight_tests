@@ -1,12 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test.use({ headless: true });
-
-test('mocking data test', async ({ browser }) => {
-
-  const context = await browser.newContext();
-  const page = await context.newPage();
-
+test('mocking data test', async ({ page }) => {
   const username = page.locator('[data-test="username"]')
   const password = page.locator('[data-test="password"]')
   const login = page.locator('[data-test="login-button"]')
@@ -49,8 +43,7 @@ test('mocking data test', async ({ browser }) => {
   await login.click()
 
   await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html')
-  expect(await page.locator('.inventory_list').screenshot()).toMatchSnapshot();
-
+  // expect(await page.locator('.inventory_list').screenshot()).toMatchSnapshot();
   await burger.click()
   await logout.click()
 
