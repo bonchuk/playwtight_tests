@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test'
 
 test.describe('PC assembly', () => {
 
-
   test.beforeEach(async ({ page }) => {
 
     await page.route("**/*", (route, request) => {
@@ -28,7 +27,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://rozetka.com.ua/ua/komplektuyushchie-dlya-geymerov/c4668373/');
   })
 
-  test.afterAll(async ({ page }) => {
+  test.afterEach(async ({ page }) => {
     await page.close()
   })
 
@@ -40,8 +39,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/asus_tuf_gaming_b550_plus/p218402767/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
-    // await expect(page.getByTestId('title')).toContainText('Материнська плата Asus TUF Gaming B550-Plus (sAM4, AMD B550, PCI-Ex16)')
-    await expect(page.getByTestId('cart-counter-input')).toBeVisible()
+    await expect(page.getByTestId('title')).toContainText('Материнська плата Asus TUF Gaming B550-Plus (sAM4, AMD B550, PCI-Ex16)')
   })
 
   test('picking a power supply unit', async ({ page }) => {
@@ -52,8 +50,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/rztk_hw600_np/p349957428/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
-    // await expect(page.getByTestId('title')).toContainText('Блок живлення RZTK PcCooler HW600-NP')
-    await expect(page.getByTestId('cart-counter-input')).toBeVisible()
+    await expect(page.getByTestId('title')).toContainText('Блок живлення RZTK PcCooler HW600-NP')
   })
 
   test('picking a proceccor', async ({ page }) => {
@@ -64,8 +61,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/amd_100-100000061wof/p260365486/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
-    // await expect(page.getByTestId('title')).toContainText('Процесор AMD Ryzen 9 5900X 3.7 GHz / 64 MB (100-100000061WOF) sAM4 BOX')
-    await expect(page.getByTestId('cart-counter-input')).toBeVisible()
+    await expect(page.getByTestId('title')).toContainText('Процесор AMD Ryzen 9 5900X 3.7 GHz / 64 MB (100-100000061WOF) sAM4 BOX')
   })
 
   test('picking a videocard', async ({ page }) => {
@@ -77,9 +73,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/gigabyte-gv-n3050gaming-oc-8gd/p333794275/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
-    // await expect(page.getByTestId('title')).toContainText('/Gigabyte PCI-Ex GeForce RTX 3050 Gaming OC 8G 8 GB GDDR6 (128 bit) (14000)/ (2 х HDMI, 2 x DisplayPort) (GV-N3050GAMING OC-8GD)')
-    await page.pause()
-    await expect(page.getByTestId('cart-counter-input')).toBeVisible()
+    await expect(page.getByTestId('title')).toContainText('Gigabyte PCI-Ex GeForce RTX 3050 Gaming OC 8G 8 GB GDDR6 (128 bit) (14000) (2 х HDMI, 2 x DisplayPort) (GV-N3050GAMING OC-8GD)')
   })
 
   test('picking a RAM', async ({ page }) => {
@@ -91,8 +85,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/kingston_fury_kf432c16bb1k2_32/p310064098/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
-    // await expect(page.getByTestId('title')).toContainText('Оперативна пам\'ять Kingston Fury DDR4-3200 32768 MB PC4-25600 (Kit of 2x16384) Beast Black (KF432C16BB1K2/32)')
-    await expect(page.getByTestId('cart-counter-input')).toBeVisible()
+    await expect(page.getByTestId('title')).toContainText('Оперативна пам\'ять Kingston Fury DDR4-3200 32768 MB PC4-25600 (Kit of 2x16384) Beast Black (KF432C16BB1K2/32)')
   })
 
   test('picking a Hard Drive', async ({ page }) => {
@@ -104,8 +97,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/western_digital_wd10ezex/p231137/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
-    // await expect(page.getByTestId('title')).toContainText('Жорсткий диск Western Digital Blue 1TB 7200rpm 64MB WD10EZEX 3.5 SATA III')
-    await expect(page.getByTestId('cart-counter-input')).toBeVisible()
+    await expect(page.getByTestId('title')).toContainText('Жорсткий диск Western Digital Blue 1TB 7200rpm 64MB WD10EZEX 3.5 SATA III')
   })
 
   test('picking a Frame', async ({ page }) => {
@@ -117,7 +109,6 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/nzxt_ca_h510b_br/p119862523/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
-    // await expect(page.getByTestId('title')).toContainText('Корпус NZXT H510 Matte Black-Red (CA-H510B-BR)')
-    await expect(page.getByTestId('cart-counter-input')).toBeVisible()
+    await expect(page.getByTestId('title')).toContainText('Корпус NZXT H510 Matte Black-Red (CA-H510B-BR)')
   })
 })
