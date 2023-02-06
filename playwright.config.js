@@ -95,13 +95,14 @@ const config = {
     //     ...devices['Pixel 5'],
     //   },
     // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: {
-    //     ...devices['iPhone 12'],
-    //     colorScheme: 'dark',
-    //   },
-    // },
+    {
+      name: 'Mobile Safari',
+      testMatch: 'tests/emulation.spec.js',
+      use: {
+        ...devices['iPhone 12'],
+        colorScheme: 'dark',
+      },
+    },
 
     /* Test against branded browsers. */
     // {
