@@ -1,0 +1,20 @@
+{
+  "name": "Playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test-ct": "playwright test -c playwright-ct.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.29.2",
+    "@playwright/test": "^1.30.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
