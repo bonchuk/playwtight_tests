@@ -1,13 +1,8 @@
-import { test } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
-test('login test', async ({ browser }) => {
-
-  // Create a new incognito browser context
-  const context = await browser.newContext();
-  // Create a new page inside context.
-  const page = await context.newPage();
-  // add cookies
-  await context.addCookies([{ name: "NOT_VISIBLE_MODAL", value: "true", domain: "megasport.ua", path: "/", expires: 1675419510, secure: true, sameSite: "None" }]);
+test('login test', async ({ page, context }) => {
+  
+  await context.addCookies([{ name: "NOT_VISIBLE_MODAL", value: "true", domain: "megasport.ua", path: "/", secure: true, sameSite: "None" }]);
 
   await page.route("**/*", (route, request) => {
     const urlsToBlock = new Set(
@@ -29,13 +24,15 @@ test('login test', async ({ browser }) => {
   const page1Promise = page.waitForEvent('popup');
   await page.getByRole('button', { name: 'Google' }).click();
   const page1 = await page1Promise;
-  await page1.getByRole('textbox', { name: 'Електронна адреса або номер телефону' }).fill('memcrab.test@gmail.com');
-  await page1.getByRole('button', { name: 'Далі' }).click();
-  await page1.getByRole('textbox', { name: 'Введіть пароль' }).fill('cigto2-coPmor-xizgut');
+  await page1.getByRole('textbox', { name: 'Email or phone' }).fill('memcrab.test@gmail.com');
+  await page1.getByRole('button').nth(1).click();
+  await page1.getByRole('textbox', { name: 'Enter your password' }).fill('cigto2-coPmor-xizgut');
 
+  const navigationPromise = page.waitForNavigation({url:'https://megasport.ua/'});
   await page1.locator('#passwordNext').click()
-  await page.waitForNavigation();
+  await navigationPromise;
 
+  await expect(page).toHaveURL('https://megasport.ua/');
   await page.locator('._O0dT7 > a').first().click();
   await page.getByRole('button', { name: 'Вийти' }).click();
 })
