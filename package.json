@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx playwright test",
     "test-ct": "playwright test -c playwright-ct.config.js",
-    "build": "npm run build"
+    "build": "node playwright.config.js"
   },
   "keywords": [],
   "author": "",
