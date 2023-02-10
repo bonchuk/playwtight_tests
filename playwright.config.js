@@ -26,6 +26,8 @@ dotenv.config({
   path: '.env'
 })
 
+require('dotenv-vault-core').config()
+
 /**
  * @see https://playwright.dev/docs/test-configuration
  * @type {import('@playwright/test').PlaywrightTestConfig}
