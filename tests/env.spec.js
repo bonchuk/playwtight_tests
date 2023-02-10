@@ -1,4 +1,5 @@
 import { test } from '@playwright/test'
+// require('dotenv-vault-core').config()
 
 test('login test with .env data', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
