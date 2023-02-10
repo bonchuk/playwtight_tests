@@ -1,0 +1,13 @@
+node_modules/
+/playwright-report/
+tests/.DS_Store
+test-results/screenshot-portrait-test-chromium/.DS_Store
+test-results/.DS_Store
+.DS_Store
+
+.flaskenv*
+!.env.project
+!.env.vault
+.env
+.env.me
+.env.previous
