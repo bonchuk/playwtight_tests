@@ -21,7 +21,12 @@ module.exports = defineConfig({
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
+// import * as dotenv from 'dotenv'
+// dotenv.config({
+//   path: '.env'
+// })
 
+require('dotenv-vault-core').config()
 
 /**
  * @see https://playwright.dev/docs/test-configuration
