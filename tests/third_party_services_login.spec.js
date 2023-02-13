@@ -31,7 +31,7 @@ test('login test', async ({ page, context }) => {
   const navigationPromise = page.waitForNavigation({url:'https://megasport.ua/'});
   await page1.locator('#passwordNext').click()
   await navigationPromise;
-
+  
   await expect(page).toHaveURL('https://megasport.ua/');
   await page.locator('._O0dT7 > a').first().click();
   await page.getByRole('button', { name: 'Вийти' }).click();
