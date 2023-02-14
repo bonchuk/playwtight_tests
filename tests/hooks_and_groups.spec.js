@@ -46,7 +46,7 @@ test.describe('PC assembly', () => {
     await page.close()
   })
 
-  test.only('picking a motherboard', async ({ page }) => {
+  test('picking a motherboard', async ({ page }) => {
 
     await page.locator('.tile-cats').filter({ hasText: 'Материнські плати' }).click()
     await page.locator('.goods-tile__title').filter({ hasText: 'Материнська плата Asus TUF Gaming B550-Plus (sAM4, AMD B550, PCI-Ex16)' }).click()
@@ -54,6 +54,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/asus_tuf_gaming_b550_plus/p218402767/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
+    await page.waitForLoadState('domcontentloaded')
     await expect(page.getByTestId('title')).toContainText('Материнська плата Asus TUF Gaming B550-Plus (sAM4, AMD B550, PCI-Ex16)')
   })
 
@@ -65,6 +66,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/rztk_hw600_np/p349957428/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
+    await page.waitForLoadState('domcontentloaded')
     await expect(page.getByTestId('title')).toContainText('Блок живлення RZTK PcCooler HW600-NP')
   })
 
@@ -76,6 +78,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/amd_100-100000061wof/p260365486/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
+    await page.waitForLoadState('domcontentloaded')
     await expect(page.getByTestId('title')).toContainText('Процесор AMD Ryzen 9 5900X 3.7 GHz / 64 MB (100-100000061WOF) sAM4 BOX')
   })
 
@@ -88,6 +91,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/gigabyte-gv-n3050gaming-oc-8gd/p333794275/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
+    await page.waitForLoadState('domcontentloaded')
     await expect(page.getByTestId('title')).toContainText('Gigabyte PCI-Ex GeForce RTX 3050 Gaming OC 8G 8 GB GDDR6 (128 bit) (14000) (2 х HDMI, 2 x DisplayPort) (GV-N3050GAMING OC-8GD)')
   })
 
@@ -95,12 +99,14 @@ test.describe('PC assembly', () => {
 
     await page.locator('.tile-cats').filter({ hasText: 'Оперативна пам\'ять' }).click()
     await page.waitForURL('https://hard.rozetka.com.ua/ua/memory/c80081/21256=3370/');
-    await page.locator('.goods-tile__title').filter({ hasText: 'Оперативна пам\'ять Kingston Fury DDR4-3200 32768 MB PC4-25600 (Kit of 2x16384) Beast Black (KF432C16BB1K2/32)' }).click()
+    await page.pause()
+    await page.locator('.goods-tile__title').filter({ hasText: 'Оперативна пам\'ять Kingston Fury DDR5-4800 32768 MB PC5-38400 (Kit of 2x16384) Beast Black (KF548C38BBK2-32)' }).click()
 
-    await page.waitForURL('https://hard.rozetka.com.ua/ua/kingston_fury_kf432c16bb1k2_32/p310064098/');
+    await page.waitForURL('https://hard.rozetka.com.ua/ua/kingston-fury-exhyperx-kf548c38bbk2-32/p324175480/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
-    await expect(page.getByTestId('title')).toContainText('Оперативна пам\'ять Kingston Fury DDR4-3200 32768 MB PC4-25600 (Kit of 2x16384) Beast Black (KF432C16BB1K2/32)')
+    await page.waitForLoadState('domcontentloaded')
+    await expect(page.getByTestId('title')).toContainText('Оперативна пам\'ять Kingston Fury DDR5-4800 32768 MB PC5-38400 (Kit of 2x16384) Beast Black (KF548C38BBK2-32)')
   })
 
   test('picking a Hard Drive', async ({ page }) => {
@@ -112,6 +118,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/western_digital_wd10ezex/p231137/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
+    await page.waitForLoadState('domcontentloaded')
     await expect(page.getByTestId('title')).toContainText('Жорсткий диск Western Digital Blue 1TB 7200rpm 64MB WD10EZEX 3.5 SATA III')
   })
 
@@ -124,6 +131,7 @@ test.describe('PC assembly', () => {
     await page.waitForURL('https://hard.rozetka.com.ua/ua/nzxt_ca_h510b_br/p119862523/');
     await page.locator('rz-product-buy-btn').getByRole('button', { name: 'Купити' }).click();
     await page.goto('https://hard.rozetka.com.ua/ua/cart/')
+    await page.waitForLoadState('domcontentloaded')
     await expect(page.getByTestId('title')).toContainText('Корпус NZXT H510 Matte Black-Red (CA-H510B-BR)')
   })
 })
